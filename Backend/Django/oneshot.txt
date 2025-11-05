@@ -1,0 +1,129 @@
+[ ONE SHOT ]
+
+
+[ BACKEND ]
+
+- In tech, backend refers to the server-side of an application that handles logic, databases, authentication, and communication with the frontend. It processes requests, executes business logic, and manages data storage.
+- Django is a high-level Python web framework that simplifies web development by providing built-in features like authentication, database management, and security.
+- Django features MVC/MVT architecture, a built-in admin panel, ORM for database interaction, robust security (protecting against SQL injection, CSRF, XSS), and high scalability (used by Instagram, Pinterest).
+
+[ INSTALLATION ]
+
+- sudo pacman -S python python-pip  # Install Python , Pip , Virtual Env
+- python --version                  # Check Python version  
+- pip --version                     # Check pip version  
+- python -m venv venv_name          # Create virtual environment 
+- source venv_name/bin/activate     # Activate venv (Linux/macOS)  
+- venv_name\Scripts\activate        # Activate venv (Windows)  
+- pip install django                # Install Django  
+- django-admin --version            # Check Django version  
+- deactivate                        # Deactivate virtual environment
+
+[ MAJOR COMMANDS ]
+
+- django-admin startproject project_name   # Create a new project  
+- cd project_name                          # Navigate to project folder  
+- python manage.py runserver               # Start development server  
+
+- Create and manage apps
+- python manage.py startapp app_name       # Create a new app  
+
+- Migrations and database managements
+- python manage.py makemigrations                        # Generate migration files  
+- python manage.py migrate                               # Apply migrations  
+- python manage.py showmigrations                        # Show applied migrations  
+- python manage.py sqlmigrate app_name migration_number  # View SQL for a migration  
+
+- User and admin management 
+- python manage.py createsuperuser         # Create admin user  
+- python manage.py changepassword username # Change user password  
+
+- Debugging and testing
+- python manage.py check       # Check for project errors  
+- python manage.py test        # Run tests  
+
+- Collect static files
+- python manage.py collectstatic           # Collect static files  
+
+[ DJANGO PROJECT DIRECTORY ]
+
+my_project/          # Root project directory
+│── manage.py        # Command-line utility for managing Django project
+│── db.sqlite3       # Default SQLite database file (if used)
+│── my_project/      # Main project package
+│   │── __init__.py  # Marks this as a Python package
+│   │── settings.py  # Main configuration file (database, middleware, installed apps, etc.)
+│   │── urls.py      # Defines URL routing for the project
+│   │── wsgi.py      # WSGI entry point for web servers (for deployment)
+│   │── asgi.py      # ASGI entry point (for async support)
+│── my_app/          # A Django application (each feature can be a separate app)
+│   │── migrations/  # Stores migration files for database changes
+│   │── __init__.py  # Marks this as a Python package
+│   │── admin.py     # Registers models in Django admin panel
+│   │── apps.py      # App configuration settings
+│   │── models.py    # Defines database models
+│   │── tests.py     # Contains test cases for the app
+│   │── views.py     # Contains business logic (handles requests and responses)
+│── templates/       # Stores HTML template files
+│── static/          # Stores CSS, JavaScript, images, etc.
+
+- MVC stands for Model–View–Controller, a software design pattern used to separate concerns in web applications.
+- MVT is Django’s design pattern, a variation of MVC tailored for web development.
+- Model handles the data: defines database structure, fields, and relationships.
+- View contains business logic: processes requests, queries models, and returns responses.
+- Template is the presentation layer: defines how data is displayed (HTML, CSS).
+- Unlike MVC, Django’s framework itself acts as the Controller (URL dispatcher).
+- Views in Django are Python functions/classes that link models and templates.
+- Templates use Django Template Language (DTL) to dynamically generate HTML.
+- Models are defined in models.py, and automatically linked to the database.
+- Views are in views.py, and they fetch data from models and render templates.
+- MVT ensures separation of concerns, making Django apps modular, maintainable, and scalable.
+
+
+- VIEWS
+
+- Views handle HTTP requests and return HTTP responses.
+- They contain the logic for what happens when a user visits a specific URL.
+- Views can be written as Function-Based Views (FBVs) or Class-Based Views (CBVs).
+- Function-Based Views (FBV)
+- Regular Python functions that take request as an argument.
+- Return HttpResponse, JsonResponse, HttpResponseRedirect, etc.
+- Common decorators:
+    @require_http_methods(["GET", "POST"])
+    @csrf_exempt
+    @login_required (from django.contrib.auth.decorators)
+- Class-Based Views (CBV)
+- Inherit from django.views.View or other mixins like TemplateView, DetailView, etc.
+- Organize logic into class methods like .get(), .post(), .put(), etc.
+- Must use .as_view() in urls.py to convert to a callable view.
+- Decorators like @method_decorator can be applied to CBVs.
+- Return Types
+- HttpResponse – returns plain text or HTML.
+- JsonResponse – returns JSON (for APIs).
+- HttpResponseRedirect – redirects to another URL.
+- HttpResponseNotFound, HttpResponseBadRequest, etc., for error responses.
+- render(request, template, context) – shortcut to return HTML with context.
+- Context in Views
+- Context is a dictionary passed from view to template.
+- It contains data to be dynamically rendered in HTML using template syntax.
+- Dynamic Views
+- Can take URL parameters via <int:id>, <str:name> etc.
+- These parameters are passed as arguments to the view.
+- Advanced CBVs
+- TemplateView, ListView, DetailView, CreateView, etc. handle common tasks.
+- Mixins can be used for reusable logic (e.g. LoginRequiredMixin).
+-  HTTP Method Handling
+    You can filter request methods using if request.method == "POST".
+    Or restrict methods using @require_http_methods.
+    CBVs define get(), post(), put(), delete() methods.
+- Error Views
+    Custom views can return 404, 403, or other error responses.
+    Django can also use custom error handlers: handler404, handler500, etc.
+- CSRF in Views
+    By default, Django requires CSRF tokens for POST methods.
+    Use @csrf_exempt to bypass during testing (not recommended in production).
+- Best Practices
+    Keep views thin – avoid too much logic in views.
+    Delegate database access to models and data formatting to templates.
+    Use CBVs when you need reusability and structure.
+    Use FBVs when logic is simple or highly customized.
