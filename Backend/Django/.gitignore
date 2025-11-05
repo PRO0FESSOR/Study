@@ -1,1 +1,63 @@
+# Python-specific files
+# ------------------------------------
+*.pyc
+__pycache__/
+*~
+*.log
+*.pot
+*.bak
+
+# Virtual environment
+# ------------------------------------
 learning/
+.venv/
+env/
+.env/
+
+# Database
+# ------------------------------------
+# SQLite database file (if used locally)
+db.sqlite3
+*.sqlite3
+
+# Environment variables and sensitive data
+# ------------------------------------
+# The file that stores your SECRET_KEY and other local settings
+.env 
+local_settings.py 
+
+# Media and static file directories
+# ------------------------------------
+# Folders where collected static and uploaded media files will go during deployment
+/static/ 
+/media/
+
+# Operating System and IDE specific files
+# ------------------------------------
+# macOS
+.DS_Store 
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# VS Code
+.vscode/
+
+# PyCharm/IntelliJ
+.idea/
+
+# Testing and coverage
+# ------------------------------------
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Packaging and distribution
+# ------------------------------------
+build/
+dist/
+*.egg-info/
+*.whl
+
