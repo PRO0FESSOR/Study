@@ -80,50 +80,70 @@ my_project/          # Root project directory
 - MVT ensures separation of concerns, making Django apps modular, maintainable, and scalable.
 
 
-- VIEWS
-
+- VIEWS in django
 - Views handle HTTP requests and return HTTP responses.
 - They contain the logic for what happens when a user visits a specific URL.
 - Views can be written as Function-Based Views (FBVs) or Class-Based Views (CBVs).
 - Function-Based Views (FBV)
 - Regular Python functions that take request as an argument.
-- Return HttpResponse, JsonResponse, HttpResponseRedirect, etc.
+- So python function takes request variable as an argument.
+- We can simply define a function for view , then we can write logic in function and then we can return it.
+- We can returnn HttpResponse just to get simple response.
+- We can return render which can be use to render html or template , syntax is render(request,'a.html').
+- We can return jsonresponse to return a json.
+- We can also return redirect for redirecting to another url.
+- We can import render or redirect from the django.shortcuts.
+- We can import httpresponse , jsonresponse or httpresponsenotfound from django.http.
+- We can use decorator (funcions to increase functionality of other function) like @require_http_methods to use differnt http method like @require_http_methods(["POST"]).
+- We can import @require_http_method from django.views.decorators.http
 - Common decorators:
     @require_http_methods(["GET", "POST"])
     @csrf_exempt
     @login_required (from django.contrib.auth.decorators)
+- By default, Django requires CSRF tokens for POST methods.
+- Use @csrf_exempt to bypass during testing (not recommended in production).
+- We can import @csrf_exempt from django.views.decorators.csrf .
 - Class-Based Views (CBV)
-- Inherit from django.views.View or other mixins like TemplateView, DetailView, etc.
+- We can also create classes for views just like functions.
+- We can simply create a class which take View variable as an argument to initialise a class based view.
+- We can import View for class from django.views.
+- Inside class we can create a function with the http method name like def get() which take self,request as an argument then we can return it.
+- We can use @method_decorators to use decorators in class based view.
+- We can import method decorators from django.utils.decorators.
+- We can use method decorator like - @method_decorator(csrf_exempt, name='dispatch').
 - Organize logic into class methods like .get(), .post(), .put(), etc.
-- Must use .as_view() in urls.py to convert to a callable view.
-- Decorators like @method_decorator can be applied to CBVs.
-- Return Types
-- HttpResponse – returns plain text or HTML.
-- JsonResponse – returns JSON (for APIs).
-- HttpResponseRedirect – redirects to another URL.
-- HttpResponseNotFound, HttpResponseBadRequest, etc., for error responses.
-- render(request, template, context) – shortcut to return HTML with context.
-- Context in Views
+- We can use HttpResponseRedirect – redirects to another URL.
+- We can use render(request, template, context) – shortcut to return HTML with context.
 - Context is a dictionary passed from view to template.
 - It contains data to be dynamically rendered in HTML using template syntax.
-- Dynamic Views
-- Can take URL parameters via <int:id>, <str:name> etc.
-- These parameters are passed as arguments to the view.
-- Advanced CBVs
-- TemplateView, ListView, DetailView, CreateView, etc. handle common tasks.
-- Mixins can be used for reusable logic (e.g. LoginRequiredMixin).
--  HTTP Method Handling
+- We can also create dynamic views which accepts another value with the request like (request,id) which can be used to modify view.
+- Django’s advanced views include TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView, and Mixins (e.g., LoginRequiredMixin) — all part of Generic Class-Based Views (GCBVs) that simplify common CRUD and page-rendering tasks by providing built-in logic for displaying, creating, updating, deleting, and securing data with minimal code.
+- HTTP Method Handling
     You can filter request methods using if request.method == "POST".
     Or restrict methods using @require_http_methods.
     CBVs define get(), post(), put(), delete() methods.
 - Error Views
     Custom views can return 404, 403, or other error responses.
     Django can also use custom error handlers: handler404, handler500, etc.
-- CSRF in Views
-    By default, Django requires CSRF tokens for POST methods.
-    Use @csrf_exempt to bypass during testing (not recommended in production).
+- URLS in django.
+- Views include the logic for response but Urls are used to link a view with the url map hello_view with the hello/ url.
+- Urls are created inside a urls.py file which exist at project level but we can create same like for app level to organise better.
+- Urls.py file consist of the list name as url patterns and inside that list we can define paths.
+- We can import path from django.urls.
+- This path function simply take some arguments first is url like '' - home pr 'about/' , second is view to map it with url and third is name which is used for the unique identifier.
+- We can simply import views inside the urls file like from . import views.
+- We can simply use it like views.about_view.
+- For urls which use class based views , we have to use .as_view() method to map view with url like - view.about_view.as_view().
+- Example of a path - path('template/',views.template_view,name='template').
+- We have to design the url for a dynamic view in a differnt way - 'hello/<str:name>/' so first argument in path should be like this means with hello url we are accepting a string value which we will use for name.
+- For project level urls - we can put each application level url in project level urls.py.
+- Same for project level urls we can define app urls in advance way , we can simply add all applevel views using include.
+- We can import include from django.urls just like path.
+- We can do it like this - path('',include('learnViews.urls')), #All learnViews URLS.
+- Above example works like in a normal way , we can hit url by simply typing it but if we use url in above example instead of '' empty like - 'api2/' so we have to use api2/our view for all the learnViews app.
 - Best Practices
     Keep views thin – avoid too much logic in views.
     Delegate database access to models and data formatting to templates.
     Use CBVs when you need reusability and structure.
     Use FBVs when logic is simple or highly customized.
+
