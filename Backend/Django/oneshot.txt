@@ -79,7 +79,9 @@ my_project/          # Root project directory
 - Views are in views.py, and they fetch data from models and render templates.
 - MVT ensures separation of concerns, making Django apps modular, maintainable, and scalable.
 
-
+- Initialy we can create a project and create app for the project.
+- Project is the single entity but app can be multiple and will be used for each feature.
+- After creating a app we have to add it in installed apps in settings.py.
 - VIEWS in django
 - Views handle HTTP requests and return HTTP responses.
 - They contain the logic for what happens when a user visits a specific URL.
@@ -146,4 +148,31 @@ my_project/          # Root project directory
     Delegate database access to models and data formatting to templates.
     Use CBVs when you need reusability and structure.
     Use FBVs when logic is simple or highly customized.
+- Templates in Django are HTML files that define how data is presented to users — they use the Django Template Language (DTL) to dynamically insert data (from views) using placeholders like {{ variable }} and logic tags like {% for %} or {% if %}.
+- For templates we need to create a templates folder first and then create html files inside it and django will use html files from this folder.
+- There are multiple ways to manage templated in django , either we can create all files related to the app inside app only or we can create templates folder inside project level and then create subfolders for each app and then put files accordingly.
+- From views and urls we already know how to render a template .
+- We have already studied about context for templates , basicallg its a variable which take a dictionary , we can pass this context while returning a template view.
+- We can access dictionary variables inside html page or template which this way - {{variable}}.
+- DTL (Django Template Language) is Django’s built-in templating system used to dynamically generate HTML pages.
+- For using dtl we already know we can access variable from context by {{variable}}
+- It is not mandatory but it is recommended to pass one context only and all the data inside it.
+- We can use if else in dtl by if and endif tag - { % if age % } {% endif %}.
+- Dtl doesnt allow direct use of operator like > < so do calculation in view only.
+- We can also use loop in dtl by {% for i in items %} {{i}} {% endfor %}
+- We can also use date time by simply importing datetime from datetime and use its function datetime.now().
+- In dtl we can use some filters like upper or for date by using - | pipe.
+- For example for date - {{dt | date:'D d M Y'}}.
+- There are also predefined variables for loop in dtl like forloop.counter , forloop.counter0 , forloop.parentloop .
+- Loops for dictionary we can use like for key , value in data.
+- Django template filters: upper, lower, title, length, default, join, date, truncatechars, safe, add, dictsort, floatformat, capfirst, cut, slice, wordcount, filesizeformat, yesno, linebreaks, pluralize, urlencode — used to format, transform, or display data dynamically in templates.
+- We can create static files in app level or project level to use static data like css or js or image.
+- We can do this by simply adding a tag in template - {% load static %}.
+- And when we are providing file location in href then also we have to add static tag like this - {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">.
+- We can also use template inheritance in django means we can extend the functionality of the existing file.
+- We can simply inherit the class by extend tag like {% extends 'base.html' %}.
+- We can inherit and change the functionality of tags by block and endblock by <title>{% block title %}Templates{% endblock %}</title> so we can use the same block in child file and change the data.
+- There is also include tag in the django templates which allow use to simply use or include another template in our file , this allows reusability.
+- We can simply do this by - {% include 'included.html' %}.
 
