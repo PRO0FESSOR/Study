@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Templates{% endblock %}</title>
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h1> THIS IS A HTML FILE :: </h1>
+{% include 'included.html' %}
+<p>Hello I am {{author | upper}}</p>
+<p>So this is a {{ title }}</p>
+{% if is_adult %}
+<p>You are eligible reason age more than or equal to 18</p>
+{% else %}
+<p>You are underage</p>
+{% endif %}
+<ul>
+{% for i in item %}
+<li>{{i}}</li>
+{% endfor %}
+</ul>
+<p>{{dt|date:'D d M Y'}}</p>
+</body>
+</html>
