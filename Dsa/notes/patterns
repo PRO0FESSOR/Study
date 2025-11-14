@@ -1,0 +1,24 @@
+// patterns & tricks
+
+- Major trick is to observe the problem and find out patterns .
+
+- Array
+- most common is sorting the aray using sort to perform actions
+- two pointers , to evaluate two values at once 
+- extra array for marking 
+- inplace marking
+- use of unordered set to store counts or use its properties for marking 
+- -ve index - circular - (index+n)%n;
+- +ve index - outofbound circular - (index % n);
+- if the time complexity is high then try to break the code using loops to minimize complexity like n^4 to n^3 for example [ triplet sum - instead of using 3 loops use one loop and two
+  pointers approach ]
+- moore voting algotithm [The intuition behind the Moore's Voting Algorithm is based on the fact that if there is a majority element in an array, it will always remain in the lead, even after encountering other elements.] { For majority element problem }
+- Binary search
+- When we need to search element , and elements are sorted then use binary search .
+- When we are sure (after any opertaion like mid) that answer is in first or second part of array then use binary search .
+- When we know we need to neglect either right part or left part then use binary search .
+- the trick is to keep the basics in the mind , bs is all about s , e and mid
+- simply find out the condition with mid to get the solution 
+- In some problems we have to find search space for example root of 4 which is less than 4 (so search space is 0 to 3).
+- In some problems - we need to find search space as well as perform operation (example is book allocation problem - we need to create search space then check is it a possible solution or not.)
+- while calculating the search space of problem discussed above - choose end is sum of all and start is the maximum number (maximum number is always smaller than the maximum subarray sum).
