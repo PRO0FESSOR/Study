@@ -1,0 +1,242 @@
+- Javascript is backward compatible
+- Babel is a javascript compiler ,  that helps in converting ES6+ code into backward-compatible JavaScript for older browsers.
+- can print using console.log()
+- use strict helps catch common coding errors like using undeclared variables.
+- can use let and var to create variables
+- const to create variables which doesnt change
+- string indexing starts from 0;
+- .length method is used to check the string length
+- trim method is used to remove spaces 
+- toUppercase and lowercase method 
+- slice method is use to get substring and its syntax is .slice(starting index , ending index)
+- mutable function can change the actual data and immutable functions provide the new one
+- typeof operator is usedto check type
+- if we add empty string to a number then it is converted into string
+- if we add + with the +"string" then then string is converted into number
+- we can concat strings using +  in Javascript
+- template string is an efficient way to use variable data and raw text , syntax is - `` we can use ${to use variable data}
+- undefined in js is when variable is declared but assigned no value;
+- null is when there is nothing or not even declared
+- there is a limit of a number in js so we can use BigInt(number) to use large numbers 
+- we can use > >= < <= to compare items
+- in js we can use == to check if the data is same and === if the data and datatype both same
+- there are truthy and falsy values in js to represent the condition of items
+- truthy values - true , anything which exists
+- falsy values - falue , undefined , "" etc
+- we can use if statement for condition and else statement default if - if condition doesnt match
+- nested if to apply condition on condition 
+- elif to use more conditions 
+- ternary operator is an efficient way of dealing with conditions like let player = age>=18 ? true : false
+- and operator - && to apply two mandatory conditions 
+- or operator - || to apply two condition but only one is mandatory
+- switch statement is an efficient way when dealing with many conditions , is a substitute to elif 
+- while loop - if number of iteration not known 
+- for loop - if number of iteration known
+- break keyword to break the loop at a point
+- continue keyboard to skip the iteration 
+- do while loop to run the loop one time if condition doesnt matches
+- arrays in js are referrence type , ordered collection of similar as well as non similar items 
+- arrays are of object type 
+- we can check that object is array using Array.isArray()
+- push method to add the item is the end of array 
+- pop method to remove the item from end 
+- shift and unshifts method works same like push pop but from the front of the array 
+- shift and pop can also be stored in the varaiables
+- there are primitive and non primitive also known as referrence type of data types
+- primitive types like string number stored in a stack in lifo order
+- in referrence type like array only address is stored in the stack but the data is stored in the heap , we can access them using their address 
+- we can clone array using - simply assigning array 2 to array 1 , using slice method like a.slice(0) , using concat method [].concat(arr2) and mostly used is spread operator [...arr2]
+- we can simply loop an array in Javascript using normal loop , for of loop to get the values , for in loop to get the index .
+- if we create array using const then we can use its methods like push pop because data is not constant but the address where array stored is . so for security reason use const
+- we can destructure the array in js means , assigning variables to values of an array , syntax is - let [myvar1, myvar2, ...myNewArray] = myArray; 
+- when destructuring an array is we put ... with a variable then all the remaining values assigned to it and if we dont want to assign a variable to particular value simply skip it using
+  this way let [myvar1, , ...myNewArray] = myArray;
+- Objects in js are also referrence data types which store the key value pairs , arrays are good but not sufficiant for real world data , objects don't have any index we can access it using the keys 
+- we can create objects in {} and pairs like key: data
+- in objects we can create keys with or without - ""
+- we can access pairs using keys like person["name"];
+- we can create pairs like person["age"] = 23;
+- there are two ways to access keys which is using brackets and using a dot also known as bracket vs dot notation
+- using brackets like ["key"] and dot like .key
+- when key is in two words like my name then use brackets like ["my name"];
+- if key is stored in a other variable then use brackets but without -  "" like [key]
+- we can iterate objects using the for in loop which provide keys then we can access the data and using the Object.keys() method which in return provide array of keys
+- computed properties is a way to create key using [key] which we discussed before
+- we can also use spread operator in objects like in arrays 
+- there is also a important information to notice about the spread operator in objects that for the single data like ..."abcd" it also spread in form of key value pair like 1: a 2:b in the objects
+- we can also perform object destructuring.
+- we can use arrays inside the objects to create real world data like student object then inside this array of the data for different students
+- when we are working with the real world data like object array then objects inside then we can also perform nested destructuing [{firstname},{myId: UserId},{gender}] like this and we can also perovide optional variable like myid for data UserId 
+- we can create fucntions in js to perform repetitive task like sayHello and we can call function using like - sayHello() 
+- we can create function using function decalration like function sayHello()
+- we can create function using function expression means assignig function to a variable const sayHello = function()
+- we can create arrow functions - const sayHello = ()=>{} , if only one parameter is there then no need to use () and if single return statement then no need to use return and {}
+- hoisting in js is a way to call non declared function means which is declared after we called a function 
+- if we perform hoisting using the var keyword then it return undefined , with let and const it returns uncaught referrence error 
+- we can create function inside function and call them inside function only 
+- lexical scope is a way js find a value of variable if not in a current scope then js find it in other scope like global scope 
+- block scope is when varibale is accessed inside block only like let and const , fucntion scope is when variable is accessible inside complete main function like var
+- if there are chances that parameters are undefined then to avoid errors we can use default parameters like - add(a=0 , b=0) simple assign default value in parameter only 
+- rest parameter is a concept to handel the situation if there are more parameters - myfunc(a,b,...c) here a and b handel only 1 value but c can handel any number of values and returns in an array
+- param destructuring is a way to destructure object in parameter - myFunc({firstname , gender , age })
+- we know that function can accept different type of inputs so when a function accepts a function as an input then it is known as a callback function
+- it is the convention to use the input/parameter name as callback when a fucntion accepts a fucntion as a input 
+- we know that function can return a value , so function can also return a function
+- when a function accepts a function as a input or/and a function returns a fucntion then it is known as a higher order function in javascript
+- forEach method is a built in function and a higher order function which can be used with iterables like arrays , it passes each value and the index to the callback we provide .
+- map method is same like forEach loop which pass value and index but it requires a return statement as it store executed values in an array .
+- filter method filter the array and store it in a new array , it is also a higher order function
+- reduce method is basically use to perform any operation on the values and store a single answer in a variable for example average sum square of all not every values means sum of 1 to 10 which is 55
+- reduce method is also a higher order function which accepts a callback - basically pass two values first is the total which is conventially known as accumulator and the second value is current number or value , we can change these names according to our logic
+- after the callback we can pass the accumulator we want otherwise it takes the first value as a total - .reduce(()=>{},100) here 100 is the default accumulator
+- sort method is the most useful when working with data , sort is also a higher order function , sort defaultly sort on the basis of ascii values so we need to use custom code to deal with the numbers so when we return a-b then it sort in ascending order and in b-a it sorts in descending order .
+- find method is a higher order function used to find the data based on specified condition 
+- every method is a higher order function which returns a true if condition is true for all values 
+- some method is just opposite of every method , it returns true if condition is true for atleast one value
+- fill method is a higher order function it fills the arrays with any value , parameters are - value , start , end
+- splice method is also a higher order function , it is used to maniplulate array means insertion or/and deletion in an array , parameters are - startingIndex , valuesToBeDeleted , InsertValue1 , InsertValue2
+- iterables in js are the types which can be iterated using for of loop , which have length property , which we can access throught the index for example strings , array
+- set in js are like arrays but set doesnt have any order , set doesn't store duplicates , set can be created using new Set() , .add() method is used to add items in a set , .has() method to check the value exist or not .
+- Maps in js is also an iterable to store data in an ordered fashion , Maps store data in a key value pairs like object but dont allow dulicate keys like object , objects can only have string or symbol as key but in Maps we can use anything as key like array object , we can create Map using new Maps() , we can add key values using .set('','') method or pass the keys and calues in Map([],[].[]) , we can get the keys using .get() method , .keys() method returns the array of keys with values which we can destructure and extracts the data .
+-  To clone the object we can use Object.assign({},objectToBeClones) , spread operator is new for cloning .
+- when we are trying to access a key in a object which doesn't exist then it gives error so we can use optional chaining to get undefined but not an error .
+- optional chaing is basically puting ? mark before accessing key like person?.address .
+- we can use functions inside object as keys like about : function(){} or about(){} .
+- we can call functions as keys like person.about()
+- this keyword in Javascript is like a pointer which refers to context like a peice of code for example - to access object methods 
+- Call , apply and bind are some methods in js 
+- call method is basically used to call the function which is useful when we need to call the func from a object for the another object like object1.about.call(object2) .
+- we can pass the parameters using - ',' in the call like about.call(obj2,"parameter1","parameter2") .
+- apply method is same like call but it requires an array for parameters like about.apply(obj2,["",""]) .
+- bind is also same like call but it return a function which we can call like const func = about.bind(obj2,"","") .
+- arrow function takes this from the surrounding , so "this" doesn't work properly or according to need in the arrow functions .
+- if we are using same function as a key in object for lots of data then it takes useless memory , we can store the functions in one object and use the referrence where we need it . 
+- but for using referrence we are again repeating the task .
+- In js objects have internal property known as __proto__ which is used to inherit the properties of another object , we can use this to solve above case like referrence is already stored- To use proto , we need to create object using Object.create(objectToInherit) like const obj1 = Object.create(obj2); - now obj1 also inherit properties of obj2
+- In js , functions provide property known as prototype which is an object to store key value pairs .
+- We can add our own properties in the prototype of the functions and only functions provide prototype .
+- New keyword in js automatically creates the empty {} object and assign this to the object and return this , it also set proto for the object from the prototypes of the function if a function is used to assign values in the object .
+- hasOwnProperty() is used in object to avoid property from proto .
+- Array in js are also objects as it use new Array() to create array so that means array also have prototypes where methods are stored .
+- Class keyword in js is used to create the class but classes in js are fake as it internally used function only to create the items .
+- Constructor keyword is used in the class to create the constructor and without new keyword constructor is not initialised .
+- Extends keyword is used to perform the inheritance in js .
+- Super keyword in inherited class is used to call parent class constructor .
+- Get keyword is used to access functions like a normal property .
+- Set keyword is used to set the values of the properties .
+- Satic keyword in class is used to crate static properties which can be accessed used the classname without creating any object .
+- How javascript works ?
+- So from code to output in js include two phases , first is compile and second is code execute .
+- Compilation phase include 3 steps - tokenizing/lexing , pharsing , code generation .
+- Tokenizing breaks the code in small chunks , then parsing is done to create ast-abstract syntax tree , then with the help of ast executable code is generated .
+- Major task of compilation is first error checking and second is determining appropriate scope for variables .
+- If there is an error in the code then after parsing error is shown .
+- For second step in compilation js stores the scope of variables like global , function , local scope .
+- Code execution phase executes the js code inside the - global execution context .
+- This phase includes two steps - GEC creation and code execution .
+- Gec(global execution creation) is basically a process to allocate memory to the variables or function .
+- Initially window object is created and assigned to this in the memory .
+- Then all variables is created in the memory .
+- For variables created with var - memory is assigned to the variable and declared but not defined .
+- For variables created with the let and const - memory is assigned but variables is not declared means not initialized , 
+- For functions declaration memory is assigned and function is stored exactly means also defined .
+- Gec code execution phase is the second step after gec creation or memory allocation .
+- Then code is executed line by line - so we can say that js is a synchronous language - browsers are the reason we can use async features .
+- For each line we execute - either we define the variables stored in the memory like name = "alex" or we use the variables defined in the memory .
+- If a code is to print a variable value before we defined it so two cases are there :-
+- First casae if a variable is created with var then it returns undefined .
+- Second case if a variable is created with let or const then it returns uninitialized .
+- Hoisting which we studied earlier works because of the gec(global execution context) creation phase - variables are already in the memory before we access them .
+- In hoisting funtion declaration works perfectly .
+- In hoisting variables created with var or function expression created with var return undefined - means variable in the memory but not defined .
+- In hoisting variables or function expression created with let and const - get the memory but not initialized that means let ans const variables are also hoisted just uninitialized. 
+- Tez is temporal dead zone -  represent the phase when variables are uninitialized .
+- Just like gec there is a fec - function execution context to execute the code inside functions .
+- When js is executing the global code then gec is in the call stack but when fec starts then fec is inside the call stack .
+- Fec also have two phases - memory creation phase and code execution phase .
+- When a function returns a value then that value from fec is passed to the global memory .
+- During fec the arguments comes from the global memory .
+- Variables in the fec are stored as a local memory .
+- Lexical enviournment is a mechanism in js which defines the scope of the variables , determines where a variable or function can be accessed in the code .
+- Every function block script creates a new lexical enviourment and removes when code execution ends.
+- Within a function, the variables declared locally and the variables from the outer scopes are accessible due to the chain of lexical environments.
+- When a function1 executes the function2 inside it then new fec creates and comes inside call stack .
+- According to lexical scope chain , func2 can access the local variables of func2 easily .
+- But when func1 is returing a func2 then lexical scope of func1 ends , then how will func2 can access the local memory of func1 , here closers come in the role .
+- A closure in JavaScript is a feature where a function "remembers" the variables from its surrounding scope, even after that scope has exited. 
+- Closures are created whenever a function is defined inside another function and the inner function accesses variables from the outer function.
+- How to connect js with html - we have some ways -
+- If we attach script in head then js is loaded an executed before html so it results in error if we are trying to access html elements .
+- Secont we can attach script in the end of the body then html parsed then js loads and executes but it take time which we can improve .
+- Third way is to add again in head but now with the aync attribute in script tag now parsing of html and loading js asynchronously but errors are still there because js stops parsing when js file loaded for execution.
+- Best way is to use differ attribute in script tag here parsing doesn't stop .
+- Dom is a document object model when html parsing is completed then browser create object with parsed information , in js this object is assigned to the window object .
+- We can use document object to manipulate html using js.
+- Console.dir is used to print object in dir format .
+- We can select element through its id using document.getElementById("heading").
+- Document.querySelector is use to select anything like id using # , class using . , body , p , div.headline h2 (h2 of div with headline class) tag etc.
+- We can change the text using .textContent in js .
+- Just like textContent we have .innerText property to see only the text which is visible .
+- To change the style we have .style property .
+- To get the attribute of element use .getAttribute . 
+- We can use getElementByClassName or querSelectorAll to get the multiple items . 
+- Get element by class name return html collections . 
+- Query selector all returns the node list .
+- We can use innerHtml property to change the html .
+- We can use getRootNode() to get the root node of html , getChildNodes() to get all the childs in nodelist 
+- We can use getParentNode() to get the parent node . 
+- We can use .classList to get all the classses of an element and use .add and .remove to add or remove and .contain to check if class is in class list.
+- Document .createElement to create new element , .append , .prepend and .remove can be used .
+- Clone Node property to clone html node .
+- QueryselectorAll give the static list and htmlgetelemnt give live list which shows changes not just existed nodes .
+- Events in JavaScript are actions or occurrences (like clicks, keypresses, or page loads) that can be detected by the browser. They enable interaction by triggering event handlers or listeners to execute specific code in response.
+- Events are not the functionality of js , it is provided by the browsers .
+- We can add events using addEventListner(event,()=>{}) .
+- we can also use onEvent attribute like onClick etc .
+- We can use this inside the events .
+- We can loop and apply same event to mumtiple elements in a page .
+- We know browsers have a js engine to execute the code line by line and have some extra features like events .
+- Events are handled by the browsers .
+- First step browser listen the event .
+- Second send the event to the event loop .
+- Third provide the callback fucntion of event to the js engine for execution and also provide extra information related to the event which we can access by passing an argument like callback =  (e){logs(e)}
+- When gec execution ends then event loop returns the event execution .
+- When callstack is empty then event loop shares the event info or execution one by one in a synchronous way .
+- Event bubbling - when same event is applied on multiple elements which is in a parent to child order then event on child will propagate to the parent in upward direction . 
+- Event capturing - when same event is applied on multiple elements which is in a parent to child order then js starting capturing event from parent to child in downward direction .
+- We can start capturing using third argument as true - .addEventListner("click",function(){},true) .
+- Event delegation - Event delegation is a technique where you attach a single event listener to a parent element to manage events for its child elements, even if those children are added dynamically.
+- We know that js is synchronous and single threaded but js supports asynchronous behavior using features like Promises, async/await, and callback functions via the event loop and Web APIs probvided by the browser.
+- Settimeout is a feature provided by the browser to execute the code after specific time like 5 seconds .
+- Example of set time out  - setTimeout(() => console.log("Timeout!"), 1000); // Handled by browser's Web API
+- Settimeout execution - browser handels it , first callback(set time out) passes to the callback queue after the time then event loop checks if gec is ended or callstack is empty then function execution context is passes to the call stack and execution continue then ends .
+- Settimeout returns the id to the gec before browser executes it.
+- Cleartimeout it used to clear the settimeout which requires the id .
+- Set Interval is also a feature provided by the browser to executer the code again and again after particular time .
+- In set interval browser passes the callback to the callback queue again and again after particular time . 
+- As we know callback functions are those which is passes to the other function as an argument , so for async js we can use multiple callbacks for differnt scenarios like onSuccess , onFail etc .
+- When we are using callbacks nestedly then it will make code complex and it is known as callback hell .
+- Yes js uses browser web api's for aync behaviour like set time out , but js also support async behaviour using promises , async await and callbacks .
+- A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It provides a cleaner way to handle async tasks compared to callbacks.
+- Promise in js represent the future value .
+- To use promise we can do - new Promise((resolve,reject)=>{}) . 
+- On the basis of condition we can pass value in resolve or reject like resolve("resolved") reject("failed") .
+- We can acces the promoise value by PromiseName.then((resolvedvalue)=>{logs-resolvedvalue}) .then also includes callback for error . 
+- We can access the promise rejected values directly using .catch(()=>{}) .
+- Browsers handel the promises execution part or aync part .
+- Inside brower , promises are added to the microtask queue .
+- Inisde browsers , microtask queue have higher priority than callback queue . 
+- Then method in promises always return a new promise , so we can chain promises like .then(()=>{}).then(()=>{}) .
+- AJAX (Asynchronous JavaScript and XML) is a technique for making asynchronous requests to a server without reloading the entire webpage. It allows web applications to update parts of the page dynamically with new data.
+- The Fetch API is a modern, built-in JavaScript interface for making HTTP requests. It simplifies asynchronous requests and provides a cleaner, promise-based approach to fetching resources like APIs, files, or data from servers.
+- Ways to send requests or get response from the server is - 1) XMLHttpRequest 2) Fetch Api 3) Axios (third party api).
+- Async/await is a syntax for handling asynchronous operations in JavaScript. It is built on top of Promises and allows writing asynchronous code in a cleaner, synchronous-looking style.
+- Async: Declares a function that returns a Promise.
+- Await: Pauses execution inside an async function until the Promise resolves or rejects.
+- In js we have two techniques - common js and ecma script modules.
+- In cjs we can use module.exports , .exports to export and .require to import variables .
+- In esm we can simply use import to import and export to export and export default to rename variable in imports . 
+- Debouncing is a technique to limit how often a function executes. It ensures that a function runs only after a certain delay has passed since the last time it was called.
+- Use Debouncing to improve performance by avoiding unnecessary function calls , useful for handling events like resizing, scrolling, typing, or clicking.
+- How It Works? = A function is delayed by a timer , If the event is triggered again before the timer ends, the timer resets , The function executes only when no new event occurs within the delay.
+
